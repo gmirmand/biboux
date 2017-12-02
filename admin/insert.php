@@ -21,7 +21,7 @@ $id = mysqli_fetch_row($result);
 $sql = "INSERT INTO active (kappa_id) VALUES ('" . $id[0] . "')";
 if ($con->query($sql) === TRUE) {
     echo "New record created successfully";
-    header('Location: index.php');
+    header('Location: /admin');
 } else {
     echo "Error: " . $sql . "<br>" . $con->error;
 }
