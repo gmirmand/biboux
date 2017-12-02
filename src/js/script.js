@@ -29,7 +29,7 @@ var Kappa = {
         console.log('Kappa');
         setInterval(function () {
             Kappa.load();
-        }, 100)
+        }, 250)
     },
     load: function () {
         $.ajax({

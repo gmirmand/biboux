@@ -10,10 +10,10 @@
 // Example php script for fetching data from mysql database
 //--------------------------------------------------------------------------
 $host = "localhost";
-$user = "root";
-$pass = "";
+$user = "gmirmand_biboux";
+$pass = "Houna43150";
 
-$databaseName = "biboux";
+$databaseName = "gmirmand_biboux";
 //--------------------------------------------------------------------------
 // 1) Connect to mysql database
 //--------------------------------------------------------------------------

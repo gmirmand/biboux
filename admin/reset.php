@@ -9,7 +9,7 @@ include '../connection.php';
 $sql = "TRUNCATE TABLE active";
 if ($con->query($sql) === TRUE) {
     echo "Kappa table empty";
-    header('Location: ../admin.php');
+    header('Location: index.php');
 } else {
     echo "Error: " . $sql . "<br>" . $con->error;
 }

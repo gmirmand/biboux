@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<div class="container" id="kappa">
+<div class="container main" id="kappa">
 </div>
 </body>
 

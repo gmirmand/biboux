@@ -1,7 +1,7 @@
 @import 'VarMix/variables';
 
 body {
-  .container {
+  .main {
     height: 10vh;
     width: 100vw;
     position: fixed;
@@ -21,6 +21,19 @@ body {
         transform: scale(3) rotate(45deg);
         opacity: 0;
       }
+    }
+  }
+}
+
+.admin {
+  a {
+    img {
+      width: 25vw;
+    }
+    &.reset {
+      color: red;
+      font-weight: bold;
+      text-decoration: none;
     }
   }
 }
