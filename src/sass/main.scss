@@ -1,31 +1,26 @@
 @import 'VarMix/variables';
 
 body {
-  background-color: $color-green;
-  .loader {
-    &__container {
-      transition: 0.2s;
-      width: 100vw;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: black;
-      display: flex;
-    }
-    &__progressbar {
-      transition: 0.2s;
-      width: 0;
-      height: 100vh;
-      background: $color-grey;
-    }
-    &__number {
-      width: 100%;
-      text-align: center;
-      color: white;
-      font-size: 48px;
-      position: absolute;
-      top: 45vh;
+  .container {
+    height: 10vh;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    margin-left: 300px;
+    .img-container {
+      width: 40px;
+      display: inline-block;
+      //opacity: 0;
+      transform: inherit;
+      transition: 1s;
+      opacity: 1;
+      img {
+        width: 60px;
+      }
+      &.anim {
+        transform: scale(3) rotate(45deg);
+        opacity: 0;
+      }
     }
   }
 }

@@ -6,7 +6,8 @@ Biboux = function () {
 
 Biboux.prototype = {
     init: function () {
-        Kappa.init();
+        if ($('#kappa').length !== 0)
+            Kappa.init();
     }
 };
 
@@ -23,36 +24,39 @@ var Kappa = {
     loader: $('.loader__container'),
     loaderProgressBar: $('.loader__progressbar'),
     pictures: [],
+    NumberOfKappa: 0,
     init: function () {
         console.log('Kappa');
         setInterval(function () {
-            console.log('load');
             Kappa.load();
-            Kappa.move();
-        }, 500)
+        }, 100)
     },
     load: function () {
-        Kappa.pictures = [];
         $.ajax({
-            url: Kappa.urlJson,
+            url: 'loadkappa.php',
+            type: "POST",
+            data: '',
             dataType: 'json',
             error: function (xhr) {
-                console.log('error');
                 var err = eval("(" + xhr.responseText + ")");
-                alert(err.Message);
+                console.log(err.Message);
             },
             success: function (data) {
-                Kappa.max = data.length;
-                var loaded = 0;
-                var nbImgPerSecond = Kappa.max / 100;
-                var delay = 1000 / nbImgPerSecond;
-                for (var i = 0; i < Kappa.max; i++) {
-                    var img = new Image();
-                    Kappa.pictures.push('src/img/kappa/' + data[i]);
-                    console.log(Kappa.pictures);
+                var kappa = data;
+                if (data.length !== 0) {
+                    $('.container .img-container').removeClass('anim').addClass('noanim');
+                    $diff = kappa.length - Kappa.NumberOfKappa;
+                    for ($i = 0; $i < $diff; $i++) {
+                        index = kappa.length - $i;
+                        var kappauni = kappa[index - 1];
+                        var img = kappauni[2];
+                        $('.container').append("<div class='img-container anim'><img src='src/img/kappa/" + img + "' alt='kappa'/></div>");
+                    }
                 }
-                $('.container').empty();
-                $('.container').append('<img src="' + Kappa.pictures[0] + '" alt="Kappa" class="kappa">')
+                else {
+                    $('.container').empty();
+                }
+                Kappa.NumberOfKappa = kappa.length;
             }
         });
     }

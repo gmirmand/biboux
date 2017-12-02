@@ -5,13 +5,19 @@
  * Date: 01-Dec-17-0001
  * Time: 22:27
  */
-header('Content-type: application/json');
-
-$images = glob('src/img/kappa/*.png');
-
-$return = array();
-foreach ($images as $i => $image) {
-    $return[] = basename($image);
+include 'connection.php';
+//--------------------------------------------------------------------------
+// 2) Query database for data
+//--------------------------------------------------------------------------
+$query = "select kappa.* FROM  active, kappa WHERE kappa.id = active.kappa_id ORDER BY active.id";
+$result = mysqli_query($con, $query);
+$array = [];
+while ($row = mysqli_fetch_row($result)) {
+    $array[] = $row;
 }
 
-echo json_encode($return);
+//--------------------------------------------------------------------------
+// 3) echo result as json
+//--------------------------------------------------------------------------
+echo json_encode($array);
+?>
