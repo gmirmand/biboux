@@ -17,6 +17,7 @@
 <div class="container admin">
     <a href="insert.php"><img src="../src/img/kappa/1.png" alt=""></a>
     <a href="reset.php" class="reset">Reset</a>
+    <a href="upload/" class="upload">Upload</a>
 </div>
 </body>
 

@@ -16,8 +16,10 @@
 <body>
 <div class="container admin upload">
     <form method="POST" action="upload.php" enctype="multipart/form-data">
+        <input type="text" name="name">
         <input type="file" name="myimage">
-        <input type="submit" name="submit_image" value="Upload">
+        <input type="submit" name="submit_image" value="Upload"><br>
+        <a href="../">Retour admin panel</a>
     </form>
 </div>
 </body>

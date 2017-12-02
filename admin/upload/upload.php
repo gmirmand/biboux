@@ -8,12 +8,17 @@
 include '../../connection.php';
 
 //Random Kappa
-$imagename = $_FILES["myimage"]["name"];
+$name = $_POST['name'];
+$upload_image = $_FILES["myimage"]["name"];
 
-//Get the content of the image and then add slashes to it
-$imagetmp = addslashes(file_get_contents($_FILES['myimage']['tmp_name']));
+$folder = "../../src/img/kappa/";
 
-//Insert the image name and image content in image_table
-$insert_image = "INSERT INTO image_table VALUES('$imagetmp','$imagename')";
+move_uploaded_file($_FILES["myimage"]["tmp_name"], "$folder" . $_FILES["myimage"]["name"]);
 
-mysqli_query($con, $insert_image);
+$sql = "INSERT INTO kappa (name, url) VALUES('$name','$upload_image')";
+if ($con->query($sql) === TRUE) {
+    header('Location: /admin/upload');
+} else {
+    echo "Error: " . $sql . "<br>" . $con->error;
+}
+?>
