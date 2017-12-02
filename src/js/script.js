@@ -20,10 +20,6 @@ $(document).ready(function () {
 var Kappa = {
     urlJson: 'loadkappa.php',
     max: false,
-    loaderNb: $('.loader__number'),
-    loader: $('.loader__container'),
-    loaderProgressBar: $('.loader__progressbar'),
-    pictures: [],
     NumberOfKappa: 0,
     init: function () {
         console.log('Kappa');

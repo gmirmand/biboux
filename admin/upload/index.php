@@ -16,10 +16,12 @@
 <body>
 <div class="container admin upload">
     <form method="POST" action="upload.php" enctype="multipart/form-data">
-        <input type="text" name="name">
-        <input type="file" name="myimage">
-        <input type="submit" name="submit_image" value="Upload"><br>
-        <a href="../">Retour admin panel</a>
+        <label for="name">Nom de la kappa :</label>
+        <input type="text" name="name"><br>
+        <label for="myimage">Image :</label><br>
+        <input type="file" name="myimage"><br>
+        <input type="submit" name="submit_image" value="Upload"><br><br>
+        <a href="../">Retour admin panel</a> | <a href="../../src/img/kappa/">Voir les kappas</a>
     </form>
 </div>
 </body>
