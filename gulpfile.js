@@ -1,7 +1,3 @@
-/**
- * Created by epoyard.
- */
-
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
@@ -46,24 +42,23 @@ var paths = {
                 'src/js/vendor/jquery.min.js'
             ],
             app: [
-                'src/js/scripts.js'
+                'src/js/script.js'
             ]
         },
-        dest: 'src/js/min/',
+        dest: 'js/min/',
         watch: [
             // Custom
-            'src/js/scripts.js'
+            'src/js/script.js'
         ]
     }
 };
 
-
 function swallowError(error) {
-
     // If you want details of the error in the console
     console.log(error.toString());
     this.emit('end')
 }
+
 gulp.task('default', ['sass', 'scripts-app', 'scripts-vendors']);
 
 //sass task
@@ -93,7 +88,6 @@ gulp.task(
             .pipe(jshint.reporter('jshint-stylish'))
             .pipe(concat('app.js'))
             .pipe(rename({suffix: '.min'}))
-            // .pipe(ngAnnotate())
             .pipe(uglify())
             .pipe(gulp.dest(paths.js.dest));
     });
@@ -102,10 +96,8 @@ gulp.task(
     'scripts-vendors', function () {
         // create filter instance inside task function
         return gulp.src(paths.js.src.vendors)
-        // // .pipe(sourcemaps.init())
             .pipe(concat('vendors.js'))
             .pipe(rename({suffix: '.min'}))
-            // .pipe(ngAnnotate())
             .pipe(uglify())
             .pipe(gulp.dest(paths.js.dest));
     });

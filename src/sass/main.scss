@@ -1,4 +1,31 @@
 @import 'VarMix/variables';
 
 body {
+  background-color: $color-green;
+  .loader {
+    &__container {
+      transition: 0.2s;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: black;
+      display: flex;
+    }
+    &__progressbar {
+      transition: 0.2s;
+      width: 0;
+      height: 100vh;
+      background: $color-grey;
+    }
+    &__number {
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 48px;
+      position: absolute;
+      top: 45vh;
+    }
+  }
 }

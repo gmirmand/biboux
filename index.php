@@ -6,8 +6,11 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<div class="container">
+</div>
 </body>
 
-<script src="src/js/script.js"></script>
+<script src="js/min/vendors.min.js"></script>
+<script src="js/min/app.min.js"></script>
 
 </html>
