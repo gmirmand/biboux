@@ -17,7 +17,7 @@ move_uploaded_file($_FILES["myimage"]["tmp_name"], "$folder" . $_FILES["myimage"
 
 $sql = "INSERT INTO kappa (name, url) VALUES('$name','$upload_image')";
 if ($con->query($sql) === TRUE) {
-    header('Location: /admin/upload');
+    header('Location: /admin/upload?add');
 } else {
     echo "Error: " . $sql . "<br>" . $con->error;
 }

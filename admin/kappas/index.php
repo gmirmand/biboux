@@ -5,6 +5,14 @@
  * Date: 02-Dec-17-0002
  * Time: 19:02
  */
+include '../../connection.php';
+//List Kappa
+$query = "SELECT * FROM kappa";
+$result = mysqli_query($con, $query);
+$kappas = array();
+while ($row = mysqli_fetch_array($result)) {
+    $kappas[] = $row;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -12,30 +20,30 @@
     <meta charset="UTF-8">
     <title>Biboux KAPPA plugin</title>
     <link rel="stylesheet" href="../../css/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="admin">
-<div class="container admin upload">
-    <?php if (isset($_GET['add'])): ?>
-        <div class="add-popup">Kappa ajoutée.</div>
-    <?php endif; ?>
-    <form method="POST" action="upload.php" enctype="multipart/form-data">
-        <label id="fname" for="name">
-            <input type="text" name="name" required placeholder="Nom de la kappa">
-            <span>Nom de la kappa</span>
-        </label>
-
-        <div class="file">
-            <span id="filename">Selectionne ta kappa</span>
-            <label for="file-upload">Upload
-                <input type="file" id="file-upload" name="myimage" required>
-            </label>
-        </div>
-
-        <input type="submit" name="submit_image" value="Ajouter">
-    </form>
+<div class="container admin kappas-list">
+    <div class="list">
+        <?php
+        foreach ($kappas as $kappa) {
+            ?>
+            <div class="kappa-list">
+                <a class="edit">
+                    <?= $kappa['name'] ?>
+                </a>
+                <a href="/admin/kappas/delete?id=<?= $kappa['id'] ?>" class="delete">
+                    <i class="material-icons">delete</i>
+                </a>
+                <img src="../../src/img/kappa/<?= $kappa['url'] ?>" alt="<?= $kappa['name'] ?>">
+            </div>
+            <?php
+        }
+        ?>
+    </div>
 
     <div class="tools">
-        <a href="../kappas/">Voir les kappas</a>
+        <a href="../upload">Upload une kappa</a>
         <a href="../" class="return">Retour admin panel</a>
     </div>
 </div>

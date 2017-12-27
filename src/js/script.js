@@ -8,6 +8,8 @@ Biboux.prototype = {
     init: function () {
         if ($('#kappa').length !== 0)
             Kappa.init();
+        if ($('#file-upload').length !== 0)
+            Kappa.upload();
     }
 };
 
@@ -22,7 +24,6 @@ var Kappa = {
     max: false,
     NumberOfKappa: 0,
     init: function () {
-        console.log('Kappa');
         setInterval(function () {
             Kappa.load();
         }, 250)
@@ -54,6 +55,14 @@ var Kappa = {
                 }
                 Kappa.NumberOfKappa = kappa.length;
             }
+        });
+    },
+    upload: function () {
+        $('#file-upload').change(function () {
+            var filepath = this.value;
+            var m = filepath.match(/([^\/\\]+)$/);
+            var filename = m[1];
+            $('#filename').html(filename);
         });
     }
 };
