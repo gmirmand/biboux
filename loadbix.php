@@ -9,7 +9,7 @@ include 'connection.php';
 //--------------------------------------------------------------------------
 // 2) Query database for data
 //--------------------------------------------------------------------------
-$query = "select kappa.* FROM  active, kappa WHERE kappa.id = active.kappa_id ORDER BY active.id";
+$query = "select bix.* FROM  active, bix WHERE bix.id = active.bix_id ORDER BY active.id";
 $result = mysqli_query($con, $query);
 $array = [];
 while ($row = mysqli_fetch_row($result)) {

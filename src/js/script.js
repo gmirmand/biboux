@@ -6,7 +6,7 @@ Biboux = function () {
 
 Biboux.prototype = {
     init: function () {
-        if ($('#kappa').length !== 0)
+        if ($('#bix').length !== 0)
             Kappa.init();
         if ($('#file-upload').length !== 0)
             Kappa.upload();
@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 //Functions
 var Kappa = {
-    urlJson: 'loadkappa.php',
+    urlJson: 'loadbix.php',
     max: false,
     NumberOfKappa: 0,
     init: function () {
@@ -30,7 +30,7 @@ var Kappa = {
     },
     load: function () {
         $.ajax({
-            url: 'loadkappa.php',
+            url: 'loadbix.php',
             type: "POST",
             data: '',
             dataType: 'json',
@@ -39,21 +39,21 @@ var Kappa = {
                 console.log(err.Message);
             },
             success: function (data) {
-                var kappa = data;
+                var bix = data;
                 if (data.length !== 0) {
                     $('.container .img-container').removeClass('anim').addClass('noanim');
-                    $diff = kappa.length - Kappa.NumberOfKappa;
+                    $diff = bix.length - Kappa.NumberOfKappa;
                     for ($i = 0; $i < $diff; $i++) {
-                        index = kappa.length - $i;
-                        var kappauni = kappa[index - 1];
-                        var img = kappauni[2];
-                        $('.container').append("<div class='img-container anim'><img src='src/img/kappa/" + img + "' alt='kappa'/></div>");
+                        index = bix.length - $i;
+                        var bixuni = bix[index - 1];
+                        var img = bixuni[2];
+                        $('.container').append("<div class='img-container anim'><img src='src/img/bix/" + img + "' alt='bix'/></div>");
                     }
                 }
                 else {
                     $('.container').empty();
                 }
-                Kappa.NumberOfKappa = kappa.length;
+                Kappa.NumberOfKappa = bix.length;
             }
         });
     },

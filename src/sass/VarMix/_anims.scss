@@ -1,0 +1,23 @@
+@keyframes breath {
+  37.5% {
+    opacity: .2;
+    transform: scale(1.05) rotate(0deg);
+  }
+  50% {
+    opacity: .1;
+    transform: scale(1) rotate(180deg);
+  }
+  87.5% {
+    opacity: .2;
+    transform: scale(1.05) rotate(180deg);
+  }
+}
+
+@keyframes display {
+  10% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(0);
+  }
+}

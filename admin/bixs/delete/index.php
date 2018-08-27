@@ -7,13 +7,13 @@
  */
 include '../../../connection.php';
 //List Kappa
-$query = "SELECT url FROM kappa where id=" . $_GET['id'] . "";
+$query = "SELECT url FROM bix where id=" . $_GET['id'] . "";
 $result = mysqli_query($con, $query);
-$kappafile = mysqli_fetch_row($result);
+$bixfile = mysqli_fetch_row($result);
 
-unlink('../../../src/img/kappa/' . $kappafile[0]);
+unlink('../../../src/img/bix/' . $bixfile[0]);
 
-$sql = "DELETE FROM kappa WHERE kappa.id = " . $_GET['id'] . "";
+$sql = "DELETE FROM bix WHERE bix.id = " . $_GET['id'] . "";
 if ($con->query($sql) === TRUE) {
     header('Location: ../');
 } else {

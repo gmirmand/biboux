@@ -1,30 +1,9 @@
-@import 'VarMix/variables';
-@import 'VarMix/respond-to';
+@import "VarMix/*.scss";
+@import "VarMix/**/*.scss";
 
 body {
   font-family: Arial, sans-serif;
   color: white;
-  .main {
-    max-width: 100vw;
-    position: fixed;
-    bottom: 0;
-    margin: 0 300px;
-    .img-container {
-      width: 40px;
-      display: inline-block;
-      //opacity: 0;
-      transform: inherit;
-      transition: 1s;
-      opacity: 1;
-      img {
-        width: 60px;
-      }
-      &.anim {
-        transform: scale(3) rotate(45deg);
-        opacity: 0;
-      }
-    }
-  }
   &.admin {
     background-color: black;
     height: 100vh;
@@ -38,14 +17,15 @@ body {
       right: 0;
       bottom: 0;
       z-index: -1;
-      #resistance {
-        max-height: 90vh;
-        max-width: 90vw;
-        width: 100%;
-        height: 100%;
+      overflow: hidden;
+      #background {
+        max-height: 768px;
+        max-width: 768px;
+        width: 80%;
+        height: 80%;
         opacity: .1;
         transform: scale(1);
-        animation: breath 5s infinite ease;
+        animation: breath 10s infinite ease;
         path {
           fill: white;
         }
@@ -62,23 +42,6 @@ body {
       }
       height: 100%;
       flex-direction: column;
-      a {
-        &.kappa {
-          #kappaAdd {
-            max-width: 25vw;
-            margin: 0 auto;
-            display: block;
-            transform: scale(1);
-            transition: .3s;
-            &:hover {
-              transform: scale(1.05);
-            }
-          }
-        }
-      }
-      .nbkappa {
-        color: white;
-      }
       .tools {
         position: fixed;
         bottom: 1em;
@@ -138,7 +101,6 @@ body {
           padding: 20px;
           width: 300px;
           margin-bottom: 20px;
-          font-size: 18px;
           outline: none;
           transition: all 0.2s ease-in-out;
           &::placeholder {
@@ -214,13 +176,13 @@ body {
       }
     }
   }
-  .kappas-list {
+  .bixs-list {
     width: 50vw;
     margin: 0 auto;
     .list {
       display: flex;
       flex-wrap: wrap;
-      .kappa-list {
+      .bix-list {
         flex-basis: calc(25% - 20px);
         padding: 10px;
         margin: 10px;
@@ -284,20 +246,52 @@ body {
       }
     }
   }
-}
-
-@keyframes breath {
-  75% {
-    opacity: .2;
-    transform: scale(1.05);
+  //  Big button
+  .button-wrap {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba($color-yellow, 0.65);
+    border-top: 1px solid rgba($color-yellow, 0.65);
+    border-bottom: 1px solid rgba($color-yellow, 0.65);
+    box-shadow: 0 0 50px rgb(38, 38, 38);
+    transition: .33s;
+    &:hover {
+      box-shadow: 0 0 50px rgb(69, 69, 69);
+    }
+    a {
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 1;
+      text-decoration: none;
+      transition: .33s;
+      font-weight: bold;
+      font-size: 48px;
+      color: #ccc;
+      width: 220px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid #0f0f0f;
+      background: linear-gradient(135deg, rgb(0, 0, 0) 19%, rgb(45, 45, 45) 100%); /* W3C */
+      opacity: 0.95;
+      &:hover {
+        color: $color-yellow;
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
   }
-}
-
-@keyframes display {
-  10% {
-    transform: translateY(0);
-  }
-  90% {
-    transform: translateY(0);
+  .nbbix {
+    font-weight: bold;
+    font-size: 28px;
+    color: #ccc;
+    margin-top: 20px;
   }
 }

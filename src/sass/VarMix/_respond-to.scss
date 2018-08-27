@@ -26,10 +26,10 @@ $screen-md-max: ($screen-lg - 1);
     @media (max-width: $screen-xs-max) { @content }
   }
   @else if $media == sm {
-    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) { @content }
+    @media (min-width: $screen-sm){ @content }
   }
   @else if $media == md {
-    @media (min-width: $screen-md) and (max-width: $screen-md-max) { @content }
+    @media (min-width: $screen-md){ @content }
   }
   @else if $media == lg {
     @media (min-width: $screen-lg) { @content }
