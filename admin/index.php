@@ -12,14 +12,14 @@ $result = mysqli_query($con, $query);
 $nbKappa = mysqli_fetch_row($result);
 
 include($path . 'src/html_part/head.php'); ?>
-<body class="admin">
+<body class="admin" id="insert">
 <div class="container admin">
     <div class="button-wrap">
-        <a href="insert.php" class="bix">Ajouter un bix</a>
+        <div class="bix">Ajouter un bix</div>
     </div>
-    <span class="nbbix">Il y a <b><?= $nbKappa[0] ?> bix<?php if ($nbKappa[0] > 1) { ?>s<?php } ?></b></span>
+    <span class="nbbix">Il y a <b><span><?= $nbKappa[0] ?></span> bix<?php if ($nbKappa[0] > 1) { ?>s<?php } ?></b></span>
     <div class="tools">
-        <a href="reset.php" class="reset">Reset</a>
+        <a class="reset">Reset</a>
         <a href="upload/" class="upload-btn">Upload</a>
         <a href="bixs/" class="upload-btn">Edit bixs</a>
     </div>

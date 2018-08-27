@@ -4,6 +4,12 @@
 body {
   font-family: Arial, sans-serif;
   color: white;
+  user-select: none;
+  a {
+    &:hover {
+      cursor: pointer;
+    }
+  }
   &.admin {
     background-color: black;
     height: 100vh;
@@ -261,8 +267,9 @@ body {
     transition: .33s;
     &:hover {
       box-shadow: 0 0 50px rgb(69, 69, 69);
+      transform: translateY(-3px);
     }
-    a {
+    .bix {
       padding: 20px;
       box-sizing: border-box;
       text-align: center;

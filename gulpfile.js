@@ -40,15 +40,16 @@ var paths = {
         src: {
             vendors: [
                 // Libraries
-                './src/js/vendor/modernizr-2.8.3.min.js',
-                './src/js/vendor/jquery.min.js'
+                './src/js/vendor/*.js'
             ],
             app: [
-                './src/js/script.js'
+                './src/js/script.js',
+                './src/js/front/*.js',
+                './src/js/admin/*.js'
             ]
         },
         dest: './js/min/',
-        watch: './src/**.js'
+        watch: ['./src/**/*.js','./src/*.js']
     }
 };
 

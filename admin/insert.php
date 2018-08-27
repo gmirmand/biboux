@@ -20,8 +20,23 @@ $id = mysqli_fetch_row($result);
 
 $sql = "INSERT INTO active (bix_id) VALUES ('" . $id[0] . "')";
 if ($con->query($sql) === TRUE) {
-    header('Location: /admin');
+//    header('Location: /admin');
 } else {
     echo "Error: " . $sql . "<br>" . $con->error;
 }
-$con->close();
+
+//Change Bix value
+$query = "select bix.* FROM  active, bix WHERE bix.id = active.bix_id ORDER BY active.id";
+$result = mysqli_query($con, $query);
+$array = [];
+while ($row = mysqli_fetch_row($result)) {
+    $array[] = $row;
+}
+// echo result as json
+$nbKappa = count($array);
+echo $nbKappa . ' bix';
+if ($nbKappa > 1) {
+    echo 's';
+};
+
+$con->close(); ?>
