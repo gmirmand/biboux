@@ -43,11 +43,11 @@ body {
       align-items: center;
       flex-wrap: wrap;
       padding: 0 5%;
-      @include respond-to(sm) {
-        padding: 0 25%;
-      }
       height: 100%;
       flex-direction: column;
+      @include respond-to(sm) {
+        padding: 0 50px;
+      }
       .tools {
         position: fixed;
         bottom: 1em;
@@ -183,13 +183,11 @@ body {
     }
   }
   .bixs-list {
-    width: 50vw;
-    margin: 0 auto;
+    width: 100%;
     .list {
       display: flex;
       flex-wrap: wrap;
       .bix-list {
-        flex-basis: calc(25% - 20px);
         padding: 10px;
         margin: 10px;
         box-sizing: border-box;
@@ -199,6 +197,16 @@ body {
         align-items: center;
         overflow: hidden;
         background-color: rgba(white, .5);
+        flex-basis: calc(100% - 20px);
+        @include respond-to(s){
+          flex-basis: calc(50% - 20px);
+        }
+        @include respond-to(m){
+          flex-basis: calc(33% - 20px);
+        }
+        @include respond-to(l){
+          flex-basis: calc(25% - 20px);
+        }
         .edit, .delete {
           height: 100%;
           position: absolute;

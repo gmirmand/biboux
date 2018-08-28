@@ -10,6 +10,9 @@ var BixFront = {
         }, 250);
     },
     load: function () {
+        function getRandomInt(min,max) {
+            return Math.floor(Math.random() * Math.floor(max - min)) + min;
+        }
         $.ajax({
             url: 'loadbix.php',
             type: "POST",
@@ -29,7 +32,7 @@ var BixFront = {
                         index = bix.length - $i;
                         var bixuni = bix[index - 1];
                         var img = bixuni[2];
-                        $('.container').append("<div class='img-container anim'><img src='src/img/bix/" + img + "' alt='bix'/></div>");
+                        $('.container').append("<div class='img-container anim'><img style='transform:rotate("+getRandomInt(-20, 20)+"deg)' src='src/img/bix/" + img + "' alt='bix'/></div>");
                     }
                 }
                 else {
@@ -58,6 +61,6 @@ var BixFront = {
             "font-weight: bold !important'>" +
             "Twitter:@Huroyy // @Biboux-extension" +
             "</div>"
-        )
+        );
     }
 };
